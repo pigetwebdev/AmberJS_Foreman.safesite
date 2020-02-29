@@ -1,0 +1,7 @@
+{{yield
+  (hash
+    isExpanded=isExpanded
+    Title=(component 'cs-collapsible-panel-title' isExpanded=isExpanded togglePanel=(action 'toggleVisibility'))
+    Content=(component 'cs-collapsible-panel-content' isExpanded=isExpanded)
+  )
+}}

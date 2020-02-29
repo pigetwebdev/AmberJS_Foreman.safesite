@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint-eslint-rules",
+      "tslint-config-prettier"
+
+  ],
+  "jsRules": {},
+  "rules": {
+      "prettier": true,
+    "curly": true,
+    "class-name": true,
+    "no-let": false,
+    "triple-equals": true,
+    "quotemark": {
+      "severity": "error",
+      "options": [
+        "single"
+      ]
+    }
+  },
+  "rulesDirectory": []
+}

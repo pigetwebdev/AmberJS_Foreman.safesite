@@ -1,0 +1,17 @@
+steps:
+    - label: 'Deploy to staging'
+      command: 'npm install && npx ember deploy staging'
+      branches: 'master env/staging'
+      env:
+          AWS_PROFILE: s3-deploy
+
+    - block: ':rocket: Deploy Production'
+      branches: 'env/production'
+
+    - wait
+
+    - label: 'Deploy to production'
+      command: 'npm install && npx ember deploy production'
+      branches: 'env/production'
+      env:
+          AWS_PROFILE: s3-deploy

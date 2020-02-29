@@ -1,0 +1,8 @@
+{{#each model as |project|}}
+  <div>
+    {{#link-to 'projects.show.map' project.id}}
+      {{project.name}}
+    {{/link-to}}
+  </div>
+{{/each}}
+{{outlet}}

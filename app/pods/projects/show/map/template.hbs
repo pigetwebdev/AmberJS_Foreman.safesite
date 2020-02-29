@@ -1,0 +1,11 @@
+<ProjectMapContainer @project={{project}} as |container|>
+  <container.overview>
+    {{outlet}}
+  </container.overview>
+  <div class="map">
+    <container.map />
+    <div class="timeline">
+      <container.timeline />
+    </div>
+  </div>
+</ProjectMapContainer>

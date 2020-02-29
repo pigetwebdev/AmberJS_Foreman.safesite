@@ -1,0 +1,77 @@
+@import 'tailwind';
+@import 'settings';
+@import 'pod-styles';
+@import 'ember-basic-dropdown';
+@import 'mapbox-gl-controls';
+
+html {
+    font-family: $body-font-family;
+    scroll-behavior: smooth;
+    //font-family: 'Salesforce Sans', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    //    'Emoji One', sans-serif;
+}
+
+body {
+    //background-color: #f4f6f9;
+
+    min-height: 100vh;
+
+    //::selection {
+    //  background: rgba(0, 0, 255, 0.3);
+    //}
+}
+
+td.slds-truncate {
+    max-width: 1px;
+}
+
+//@import 'ember-power-select';
+//
+//@import 'ember-content-placeholders';
+
+.login-form {
+    //background-color: red;
+}
+
+.ember-power-select-clear-btn {
+    font-size: 1.5rem;
+}
+
+input.ember-power-select-trigger-multiple-input {
+    padding-left: 0.5rem;
+}
+
+.login__page-sidebar {
+    background-color: $brand-colour;
+}
+
+.tic-tac-toe-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23EAEAEA' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 2.5%;
+}
+
+.ember-basic-dropdown-trigger {
+    cursor: pointer;
+}
+
+a,
+a:visited,
+a:active,
+a:focus,
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+    outline: 0;
+}
+
+button,
+button:visited,
+button:active,
+button:hover,
+button:focus {
+    outline: 0;
+}
+
+.ember-tooltip {
+    z-index: 11;
+}

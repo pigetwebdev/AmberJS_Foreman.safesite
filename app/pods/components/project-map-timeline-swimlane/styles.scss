@@ -1,0 +1,39 @@
+& {
+    grid-area: swimlane;
+
+    @extend .mx-4;
+    @extend .h-full;
+
+    svg.chart-axis {
+        width: 100%;
+        @extend .overflow-visible;
+        flex: 0 0 1rem;
+        height: 1rem;
+    }
+
+    svg.chart {
+        width: 100%;
+        flex-grow: 1;
+    }
+}
+
+div.swimline-seek {
+    width: 1rem;
+    padding-bottom: 1.25rem;
+
+    button {
+        height: 100%;
+        width: 100%;
+
+        &.back {
+            svg {
+                transform: rotate(180deg) translateX(2px);
+            }
+        }
+
+        svg {
+            height: 65%;
+            width: auto;
+        }
+    }
+}

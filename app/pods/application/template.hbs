@@ -1,0 +1,7 @@
+{{#if session.isAuthenticated}}
+  <CsApplication>
+    {{outlet}}
+  </CsApplication>
+{{else}}
+  {{outlet}}
+{{/if}}

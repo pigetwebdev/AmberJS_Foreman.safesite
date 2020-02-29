@@ -1,0 +1,14 @@
+{{#each layer.legend as |legendItem|}}
+  <li>
+    {{#if legendItem.imageData}}
+      <img
+        src={{data-uri legendItem.imageData legendItem.contentType}}
+        height={{legendItem.height}}
+        width={{legendItem.width}}
+        alt={{legendItem.label}}
+       />
+
+    {{/if}}
+    {{legendItem.label}}
+  </li>
+{{/each}}

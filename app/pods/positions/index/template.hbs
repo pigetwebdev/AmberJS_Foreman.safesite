@@ -1,0 +1,79 @@
+<ProjectMapTimeline class="mb-12 mt-4" as |Timeline|>
+  <Timeline.Swimlane />
+  <Timeline.Control />
+</ProjectMapTimeline>
+<br />
+{{outlet}}
+<table>
+  <thead>
+    <tr>
+      <th>
+        Time
+      </th>
+      <th>
+        Lon
+      </th>
+      <th>
+        Lat
+      </th>
+      <th>
+        User
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each timeline.currentEvents as |event|}}
+      <tr>
+        <td>
+          {{event.eventId}}
+        </td>
+        <td>
+          {{event.longitude}}
+        </td>
+        <td>
+          {{event.latitude}}
+        </td>
+        <td>
+          {{event.userId}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<hr />
+<table>
+  <thead>
+    <tr>
+      <th>
+        Time
+      </th>
+      <th>
+        Lon
+      </th>
+      <th>
+        Lat
+      </th>
+      <th>
+        User
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each timeline.positions as |event|}}
+      <tr>
+        <td>
+          {{event.eventId}}
+        </td>
+        <td>
+          {{event.longitude}}
+        </td>
+        <td>
+          {{event.latitude}}
+        </td>
+        <td>
+          {{event.userId}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

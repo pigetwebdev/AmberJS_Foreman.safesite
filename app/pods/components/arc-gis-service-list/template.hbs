@@ -1,0 +1,46 @@
+<div class="flex flex-col justify-center px-2 py-4">
+  <CsCollapsiblePanel @onPanelOpen={{action loadServices}} as |Panel|>
+    <Panel.Title class="flex items-center {{if Panel.isExpanded 'border-b pb-2'}} font-semibold text-base pb-1 px-2" as |title|>
+      <a role="button" disabled={{loadArcGISServices.isRunning}} {{action title.togglePanel}}>
+        ArcGIS
+      </a>
+      <button
+        class="ml-auto border rounded-full p-1 flex items-center toggle-panel"
+        role="button"
+        disabled={{loadArcGISServices.isRunning}}
+        {{action title.togglePanel}}
+      >
+        {{svg-jar 'common-06' class='h-4 w-4 stroke-current'}}
+      </button>
+    </Panel.Title>
+    <Panel.Content>
+      {{#liquid-if loadArcGISServices.last.isSuccessful}}
+        <ul class="list-reset mt-3 px-2">
+          {{#each availableServices as |service|}}
+            <ArcGisServiceListItem @service={{service}} />
+          {{/each}}
+        </ul>
+      {{else if loadArcGISServices.isRunning}}
+        <div class="p-4 pt-6 text-2xl text-green">
+          <div class="spinner-inherit text-green border-green"></div>
+        </div>
+      {{else if loadArcGISServices.last.isError}}
+        {{#with loadArcGISServices.last.error as |error|}}
+          <div class="mt-2 px-4 py-4 bg-red text-white rounded-sm border-red-dark border">
+            <h2 class="text-lg font-semi subpixel-antialiased text-shadow-2">
+              {{error.message}}
+            </h2>
+            <p class="text-sm leading-tight mt-1">
+              {{error.originalMessage}}
+            </p>
+          </div>
+        {{/with}}
+      {{else}}
+        <p class="text-sm font-medium">
+          Unknown Error
+        </p>
+      {{/liquid-if}}
+    </Panel.Content>
+  </CsCollapsiblePanel>
+</div>
+{{yield}}

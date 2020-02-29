@@ -1,0 +1,8 @@
+& {
+    display: grid;
+    grid-template-areas: 'swimlane' 'control';
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem 2.5rem;
+    margin-bottom: 1rem;
+    @extend .mx-4;
+}

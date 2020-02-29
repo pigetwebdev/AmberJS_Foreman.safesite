@@ -1,0 +1,79 @@
+<div class="flex-initial flex items-center">
+  <button class="rounded-l border border-r-0 border-solid border-grey-light w-6 h-6 p-2 flex items-center" {{action 'seekBackward'}}>
+    {{svg-jar 'angle-double-left' class='w-full h-full'}}
+  </button>
+  <button class="border border-solid border-grey-light w-6 h-6 p-2 flex items-center play-pause-button" {{action 'play'}}>
+    {{#liquid-if timeline.isPlaying}}
+      {{svg-jar 'pause' class='w-full h-full'}}
+    {{else}}
+      {{svg-jar 'play' class='w-full h-full'}}
+    {{/liquid-if}}
+  </button>
+  <button class="rounded-r border border-l-0 border-solid border-grey-light w-6 h-6 p-2 flex items-center" {{action 'seekForward'}}>
+    {{svg-jar 'angle-double-right' class='w-full h-full'}}
+  </button>
+  <button
+    class="ml-4 rounded-l border border-r-0 border-solid border-grey-light h-6 p-2 flex justify-center flex-col text-xs
+      {{if (eq (get timeline 'animationSpeedMultiplier') 1) 'bg-blue text-white'}}"
+    disabled={{or (eq (get timeline 'animationSpeedMultiplier') 1) timeline.isLive}}
+    {{action (mut timeline.animationSpeedMultiplier) 1}}
+  >
+    x1
+  </button>
+  <button
+    class="border border-solid border-grey-light h-6 p-2 flex justify-center flex-col text-xs
+      {{if (eq (get timeline 'animationSpeedMultiplier') 2) 'bg-blue text-white'}}"
+    disabled={{or (eq (get timeline 'animationSpeedMultiplier') 2) timeline.isLive}}
+    {{action (mut timeline.animationSpeedMultiplier) 2}}
+  >
+    x2
+  </button>
+  <button
+    class="border border-solid border-l-0 border-grey-light h-6 p-2 flex justify-center flex-col text-xs
+      {{if (eq (get timeline 'animationSpeedMultiplier') 10) 'bg-blue text-white'}}"
+    disabled={{or (eq (get timeline 'animationSpeedMultiplier') 10) timeline.isLive}}
+    {{action (mut timeline.animationSpeedMultiplier) 10}}
+  >
+    x10
+  </button>
+  <button
+    class="border border-l-0 border-solid border-grey-light h-6 p-2 flex justify-center flex-col text-xs
+      {{if (eq (get timeline 'animationSpeedMultiplier') 100) 'bg-blue text-white'}}"
+    disabled={{or (eq (get timeline 'animationSpeedMultiplier') 100) timeline.isLive}}
+    {{action (mut timeline.animationSpeedMultiplier) 100}}
+  >
+    x100
+  </button>
+  <button
+    class="rounded-r border border-solid border-l-0 border-grey-light h-6 p-2 flex justify-center flex-col text-xs
+      {{if (eq (get timeline 'animationSpeedMultiplier') 1000) 'bg-blue text-white'}}"
+    disabled={{or (eq (get timeline 'animationSpeedMultiplier') 1000) timeline.isLive}}
+    {{action (mut timeline.animationSpeedMultiplier) 1000}}
+  >
+    x1000
+  </button>
+  <input
+    class="w-12 ml-2"
+    type="number"
+    value={{timeline.granularity}}
+    oninput={{action (mut timeline.granularity) value='currentTarget.value'}}
+   />
+
+</div>
+<div class="flex-grow text-center flex-col flex justify-center">
+  <div class="text-sm leading-tight text-grey-darker">
+    {{#if timeline.isLive}}
+      Live
+    {{else}}
+      {{date-format currentTime 'yyyy-MM-dd hh:mm:ss'}}
+    {{/if}}
+  </div>
+</div>
+<div class="flex-initial flex flex-col justify-center">
+  {{#unless timeline.isLive}}
+    <button class="text-sm" disabled={{timeline.isLive}} {{action 'goLive'}}>
+      Go Live
+    </button>
+  {{/unless}}
+</div>
+{{yield}}

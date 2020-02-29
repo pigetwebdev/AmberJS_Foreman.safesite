@@ -1,0 +1,15 @@
+.\!path-fill-current path,
+.\!path-fill-current use {
+    fill: currentColor !important;
+}
+
+.\!path-stroke-current path,
+.\!path-stroke-current use {
+    stroke: currentColor !important;
+}
+
+/*svg {*/
+/*path {*/
+/*all: inherit;*/
+/*}*/
+/*}*/

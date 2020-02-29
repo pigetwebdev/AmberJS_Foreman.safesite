@@ -1,0 +1,30 @@
+& {
+    grid-area: overview;
+    @extend .bg-white;
+    //box-shadow: 4px 0 19px 0 rgba(0, 0, 0, 0.4);
+    z-index: 1;
+
+    display: grid;
+    grid-template-areas: 'header' 'menu' 'results';
+    grid-template-rows: 6rem 3rem 1fr;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: menu;
+    a {
+        border-bottom: 3px solid transparent;
+        transition: border-bottom-color 0.15s ease-in;
+
+        &.active {
+            border-bottom-color: hotpink;
+        }
+    }
+}
+
+section {
+    grid-area: results;
+}

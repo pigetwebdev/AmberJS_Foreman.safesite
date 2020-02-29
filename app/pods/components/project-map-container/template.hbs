@@ -1,0 +1,7 @@
+{{yield
+  (hash
+    overview=(component 'project-map-overview' project=project)
+    map=(component 'mapbox-map' mapName=mapName center=project.mapCenter)
+    timeline=(component 'project-map-timeline' project=project)
+  )
+}}

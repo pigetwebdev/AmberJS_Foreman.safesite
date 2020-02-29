@@ -1,0 +1,38 @@
+<header class="px-4 py-3">
+  <div class="text-xl font-medium leading-tight">
+    {{project.name}}
+  </div>
+  <div class="text-sm leading-tight text-grey-dark">
+    Sunny 21c
+  </div>
+
+  <div class="text-sm leading-tight text-grey-dark">
+    <input
+      type="date"
+      value={{date-format timeline.startTime 'yyyy-MM-dd'}}
+      onchange={{action 'updateStartTime' value='currentTarget.value'}}
+     />
+
+    <input
+      type="date"
+      value={{date-format timeline.endTime 'yyyy-MM-dd'}}
+      onchange={{action 'updateEndTime' value='currentTarget.value'}}
+     />
+
+  </div>
+</header>
+<nav class="flex bg-blue-darker text-grey-lightest text-sm font-medium menu">
+  {{#link-to 'projects.show.map.users' class='flex-1 inline-flex justify-center items-center hover:bg-blue-darkest py-3' role='button'}}
+    Users
+  {{/link-to}}
+  {{#link-to 'projects.show.map.layers' class='flex-1 inline-flex justify-center items-center hover:bg-blue-darkest py-3' role='button'}}
+    Layers
+  {{/link-to}}
+  {{#link-to 'projects.show.map.settings' class='flex-1 inline-flex justify-center items-center hover:bg-blue-darkest py-3' role='button'}}
+    Settings
+  {{/link-to}}
+</nav>
+<section class="overflow-y-auto max-h-full">
+  {{!subroute in here}}
+  {{yield}}
+</section>

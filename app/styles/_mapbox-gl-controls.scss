@@ -1,0 +1,111 @@
+.mapboxgl-ctrl-group {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mapboxgl-ctrl-group button {
+    background-repeat: no-repeat;
+    background-position: center;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* styles */
+.mapboxgl-ctrl-styles {
+    display: flex;
+}
+
+.mapboxgl-ctrl-styles button {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.mapboxgl-ctrl-styles button + button {
+    border: none;
+}
+
+.mapboxgl-ctrl-styles button.-active {
+    font-weight: bold;
+    background: #f5f5f5;
+}
+
+/* ruler */
+.mapboxgl-ctrl-ruler button {
+    background-color: #000;
+    mask: url('data:image/svg+xml;utf8,<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg"><path d="M8.001 34.302l.003 1.875a3 3 0 0 1 3.808 3.827l1.857.005 3.102-3.102-5.685-5.685L8 34.302zm22.34-22.3l5.67 5.664L19.6 34.08l-5.683-5.683 16.425-16.395zm6.829-6.83l5.667 5.668a3.997 3.997 0 0 1 .003 5.655L16.045 43.289c-.39.39-1.15.705-1.711.705H6a1.997 1.997 0 0 1-2.001-2v-8.332c0-.556.32-1.326.705-1.71l26.81-26.783a4 4 0 0 1 5.655.004z" fill="%23000" fill-rule="evenodd"/></svg>')
+        no-repeat;
+    mask-position: center;
+    mask-size: 16px;
+    mask-type: luminance;
+    transition: background-color 300ms;
+
+    &:hover {
+        background-color: black;
+    }
+}
+
+.mapboxgl-ctrl-ruler button.-active {
+    background-color: #3490dc;
+}
+
+/* zoom */
+.mapboxgl-ctrl-zoom button:first-child {
+    border-radius: 2px 2px 0 0;
+    background-size: 16px 16px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQzLjIgKDM5MDY5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50aGVpY29ucy5jby9zdmcvY29tbW9uLTAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlRoZS1JY29ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTI2LDcuOTk5NzA3MjggQzI2LDYuODg5ODkyNTggMjUuMTA0NTY5NSw2IDI0LDYgQzIyLjg4NzcyOTYsNiAyMiw2Ljg5NTI5OTQ0IDIyLDcuOTk5NzA3MjggTDIyLDIyIEw3Ljk5OTcwNzI4LDIyIEM2Ljg4OTg5MjU4LDIyIDYsMjIuODk1NDMwNSA2LDI0IEM2LDI1LjExMjI3MDQgNi44OTUyOTk0NCwyNiA3Ljk5OTcwNzI4LDI2IEwyMiwyNiBMMjIsNDAuMDAwMjkyNyBDMjIsNDEuMTEwMTA3NCAyMi44OTU0MzA1LDQyIDI0LDQyIEMyNS4xMTIyNzA0LDQyIDI2LDQxLjEwNDcwMDYgMjYsNDAuMDAwMjkyNyBMMjYsMjYgTDQwLjAwMDI5MjcsMjYgQzQxLjExMDEwNzQsMjYgNDIsMjUuMTA0NTY5NSA0MiwyNCBDNDIsMjIuODg3NzI5NiA0MS4xMDQ3MDA2LDIyIDQwLjAwMDI5MjcsMjIgTDI2LDIyIEwyNiw3Ljk5OTcwNzI4IFoiIGlkPSJDb21iaW5lZC1TaGFwZSIgZmlsbD0iIzAwMDAwMCI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=');
+}
+
+.mapboxgl-ctrl-zoom button:last-child {
+    border: none;
+    border-radius: 0 0 2px 2px;
+    background-size: 16px 16px;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQzLjIgKDM5MDY5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50aGVpY29ucy5jby9zdmcvY29tbW9uLTA0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlRoZS1JY29ucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS0zMDkiIGZpbGw9IiMwMDAwMDAiIHg9IjYiIHk9IjIyIiB3aWR0aD0iMzYiIGhlaWdodD0iNCIgcng9IjIiPjwvcmVjdD4KICAgIDwvZz4KPC9zdmc+');
+}
+
+/* bearing */
+.mapboxgl-ctrl-bearing {
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.1s all ease-in-out;
+    cursor: pointer;
+}
+
+.mapboxgl-ctrl-bearing.-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mapboxgl-ctrl-bearing span {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    background: url('data:image/svg+xml;utf8,<svg width="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path fill="%23212121" d="M12 3l4 8H8z"/><path fill="%239E9E9E" d="M12 21l-4-8h8z"/></g></svg>')
+        no-repeat center;
+}
+
+.mapboxgl-ctrl-traffic {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333" viewBox="-2 -2 22 22"><path d="M13 4.1L12 3H6L5 4.1l-2 9.8L4 15h10l1-1.1-2-9.8zM10 13H8v-3h2v3zm0-5H8V5h2v3z"/></svg>');
+}
+
+.mapboxgl-ctrl-map {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23333" viewBox="-10 -10 60 60"><path d="M25 31.64V11.873L15 8.362v19.766zM34.14 5q.86 0 .86.86v25.157q0 .625-.625.783L25 35l-10-3.513-8.907 3.438-.233.078q-.862 0-.862-.86V8.987q0-.625.624-.784L15 5.005l10 3.513 8.905-3.438z"/></svg>');
+}
+
+// defined in util/building-extrusions-control.ts
+.mapboxgl-ctrl-group {
+    button.mapbox-ctrl-building-extrusions {
+        background-color: #000;
+        mask: url('data:image/svg+xml;charset=utf8,<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg"><path d="M4.851 16.328l16.37-11.49c1.59-1.117 3.967-1.117 5.557 0l16.371 11.49a2 2 0 0 1 .003 3.272L26.78 31.13c-1.591 1.12-3.97 1.12-5.562 0L4.85 19.6a2 2 0 0 1 .002-3.272zM38.534 30.06s-.086-.042-.632-.422c-.905-.63-1.149-1.93-.514-2.827s1.839-1.047 2.813-.423c.58.37 2.57 1.734 2.95 2.054 1.127.949 1.136 2.456.003 3.248L26.77 43.13c-1.591 1.112-3.972 1.112-5.565 0L4.822 31.69c-1.133-.792-1.059-2.36.002-3.248.393-.329 2.476-1.724 3.039-2.115a2.012 2.012 0 0 1 2.788.484 1.975 1.975 0 0 1-.488 2.765l-.72.5 14.067 9.81c.21.147.746.147.956 0l14.068-9.826zM24.48 8.111c-.21-.148-.75-.148-.96 0L9.47 17.972l14.051 9.886c.21.148.746.148.956 0l14.037-9.885L24.48 8.111z" fill="%23000" fill-rule="nonzero"/></svg>')
+            no-repeat;
+
+        mask-position: center;
+        mask-size: 22px;
+        transition: background-color 300ms;
+    }
+}

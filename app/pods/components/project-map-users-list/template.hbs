@@ -1,0 +1,122 @@
+{{#if loadUsersTask.isRunning}}
+  <div class="flex flex-col px-2 py-4">
+    <div class="p-4 pt-6 text-2xl text-green">
+      <div class="spinner-inherit text-green border-green"></div>
+    </div>
+  </div>
+{{else}}
+  <div class="flex px-2 py-4 bg-grey-lighter border-grey-light border-b sticky z-10 pin-t">
+    <div class="flex-1">
+      <input
+        id="filter"
+        type="search"
+        autofocus
+        class="appearance-none border border-grey rounded-full w-full py-2 px-3 text-grey-darker text-sm"
+        placeholder="Filter users..."
+        name="filter"
+       />
+
+    </div>
+    <div class="flex items-center ml-4 static">
+      <BasicDropdown as |Dropdown|>
+        <Dropdown.trigger>
+          <button class="border bg-white rounded p-1 flex items-center toggle-panel" role="button">
+            {{svg-jar 'ui-41' class='h-4 w-4 stroke-current'}}
+            <EmberTooltip @popperContainer="body">
+              <span class="text-xs">
+                View options
+              </span>
+            </EmberTooltip>
+          </button>
+        </Dropdown.trigger>
+        <Dropdown.content>
+          <ul class="py-2 px-4 list-reset rounded border shadow-lg text-xs font-medium text-grey-darker">
+            <li class="p-2 border-b">
+              <a role="button" {{action (pipe (action 'showUsersOnMap') (action 'deselectUsers') (action Dropdown.actions.close))}}>
+                Show on map
+              </a>
+            </li>
+            <li class="p-2">
+              <a role="button" {{action (pipe (action 'hideUsersOnMap') (action 'deselectUsers') (action Dropdown.actions.close))}}>
+                Hide on map
+              </a>
+            </li>
+          </ul>
+        </Dropdown.content>
+      </BasicDropdown>
+    </div>
+  </div>
+{{/if}}
+{{#each-in (group-by 'roleName' users) as |role users|}}
+  <ul class="flex flex-col justify-center px-2 py-4 list-reset">
+    <CsCollapsiblePanel @tagName="li" as |Panel|>
+      <Panel.Title class="flex-inherit flex items-center pb-1 px-2" as |title|>
+        <BasicDropdown as |Dropdown|>
+          <Dropdown.trigger>
+            <button class="border bg-white rounded p-1 flex items-center" role="button">
+              {{svg-jar 'ui-41' class='h-4 w-4 stroke-current'}}
+              <EmberTooltip @popperContainer="body">
+                <span class="text-xs">
+                  View options
+                </span>
+              </EmberTooltip>
+            </button>
+          </Dropdown.trigger>
+          <Dropdown.content>
+            <ul class="py-2 px-4 list-reset rounded border shadow-lg text-xs font-medium text-grey-darker">
+              <li class="p-2 border-b">
+                <a role="button" {{action (pipe (action 'showUsersOnMap' role) (action 'deselectUsers') (action Dropdown.actions.close))}}>
+                  Show on map
+                </a>
+              </li>
+              <li class="p-2">
+                <a role="button" {{action (pipe (action 'hideUsersOnMap' role) (action 'deselectUsers') (action Dropdown.actions.close))}}>
+                  Hide on map
+                </a>
+              </li>
+            </ul>
+          </Dropdown.content>
+        </BasicDropdown>
+        <div class="ml-2 flex-1 font-semibold text-base">
+          <a role="button" {{action title.togglePanel}}>
+            {{or role 'Users without a role'}}
+          </a>
+        </div>
+        <div class="flex-initial static">
+          <button
+            class="ml-2 border rounded-full p-1 toggle-panel flex items-center toggle-panel"
+            role="button"
+            {{action title.togglePanel}}
+          >
+            {{svg-jar 'common-06' class='h-4 w-4 stroke-current'}}
+            <EmberTooltip>
+              <span class="text-xs">
+                Expand selection
+              </span>
+            </EmberTooltip>
+          </button>
+        </div>
+      </Panel.Title>
+      <Panel.Content>
+        <ul class="list-reset mt-3 px-2">
+          {{#each users as |user index|}}
+            <ProjectMapUsersListItem
+              @user={{user}}
+              @toggleTask={{toggleUserVisibility}}
+              @project={{project}}
+              @selectionChanged={{action 'handleUserSelection' user index}}
+             />
+
+          {{/each}}
+        </ul>
+      </Panel.Content>
+    </CsCollapsiblePanel>
+  </ul>
+{{else}}
+  {{#unless loadUsersTask.isRunning}}
+    <h1>
+      No Users
+    </h1>
+  {{/unless}}
+{{/each-in}}
+{{yield}}

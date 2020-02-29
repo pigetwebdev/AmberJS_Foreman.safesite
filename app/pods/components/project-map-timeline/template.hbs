@@ -1,0 +1,5 @@
+{{#if has-block}}
+  {{yield (hash Swimlane=(component 'project-map-timeline-swimlane') Control=(component 'project-map-timeline-control'))}}
+{{else}}
+  <ProjectMapTimelineSwimlane /><ProjectMapTimelineControl />
+{{/if}}

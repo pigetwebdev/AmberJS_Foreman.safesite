@@ -1,0 +1,17 @@
+<div class="flex-initial swimline-seek">
+  <button class="back" {{action 'previousTimeRange'}}>
+    {{svg-jar 'common-06'}}
+  </button>
+</div>
+<div class="flex-grow flex-col flex w-full h-full">
+  <svg class="chart">
+    <g class="position-events"></g>
+    <line class="current-time"></line>
+  </svg>
+  <svg class="chart-axis"></svg>
+</div>
+<div class="flex-initial swimline-seek">
+  <button class="next" {{action 'nextTimeRange'}}>
+    {{svg-jar 'common-06'}}
+  </button>
+</div>

@@ -1,0 +1,14 @@
+& {
+    display: grid;
+    min-height: 100vh;
+    //grid-template-areas: 'sidebar header header' 'sidebar main main';
+    //grid-template-columns: $sidebar-width 1fr 1fr;
+    //grid-template-rows: $top-bar-height auto;
+    grid-template-areas: 'sidebar main';
+    grid-template-columns: $sidebar-width 1fr;
+    grid-template-rows: auto;
+}
+
+main {
+    grid-area: main;
+}

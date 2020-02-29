@@ -1,0 +1,20 @@
+& {
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'overview map';
+    grid-template-columns: 24rem 1fr;
+}
+
+& > .map {
+    grid-area: map;
+    height: 100%;
+    position: relative;
+
+    & > .timeline {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        width: 100%;
+    }
+}

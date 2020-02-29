@@ -1,0 +1,40 @@
+<div class="flex items-center p-4 {{if isExpanded 'border-b'}}">
+  <div class="flex flex-grow flex-col">
+    <a class="text-sm font-medium service-title truncate" title="{{service.prettyName}}">
+      {{service.prettyName}}
+    </a>
+    <div class="text-xs font-normal text-grey-dark">
+      Type:
+      {{service.type}}
+    </div>
+  </div>
+  <div class="ml-auto flex-initial">
+    {{#if (eq service.type 'ImageServer')}}
+      <button
+        class="border rounded-full p-1 flex items-center {{if service.visible 'text-blue' 'text-grey'}}"
+        role="button"
+        {{action (perform toggleImageServiceVisibilityTask)}}
+      >
+        {{svg-jar 'ui-07' class='h-4 w-4 fill-current'}}
+      </button>
+    {{else}}
+      <button
+        class="border rounded-full p-1 flex items-center toggle-panel"
+        role="button"
+        {{action (pipe (toggle 'isExpanded' this) (action 'loadExtendedData'))}}
+      >
+        {{svg-jar 'common-06' class='h-4 w-4 stroke-current'}}
+      </button>
+    {{/if}}
+  </div>
+</div>
+{{#if isExpanded}}
+  {{#if loadServiceLayers.isIdle}}
+    <ArcGisServiceLayersList @service={{service}} class="mt-2" />
+  {{else}}
+    <div class="mt-2 p-4 pt-6 text-2xl text-green">
+      <div class="spinner-inherit text-green border-green"></div>
+    </div>
+  {{/if}}
+{{/if}}
+{{yield}}

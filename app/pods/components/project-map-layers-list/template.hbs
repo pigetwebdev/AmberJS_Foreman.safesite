@@ -1,0 +1,21 @@
+{{#each layerGroups as |group|}}
+  <div class="flex flex-col justify-center px-2 py-3">
+    <CsCollapsiblePanel as |Panel|>
+      <Panel.Title class="flex items-center font-semibold text-base pb-1 px-2" as |title|>
+        <a role="button" {{action title.togglePanel}}>
+          {{group.name}}
+        </a>
+        <button class="ml-auto border rounded-full p-1 flex items-center toggle-panel" role="button" {{action title.togglePanel}}>
+          {{svg-jar 'common-06' class='h-4 w-4 stroke-current'}}
+        </button>
+      </Panel.Title>
+      <Panel.Content>
+        <ul class="list-reset px-2 mt-3">
+          {{#each group.geometries as |feature|}}
+            <ProjectMapLayersListItem @feature={{feature}} @group={{group}} @toggleVisibility={{action 'toggleVisibility' group}} />
+          {{/each}}
+        </ul>
+      </Panel.Content>
+    </CsCollapsiblePanel>
+  </div>
+{{/each}}

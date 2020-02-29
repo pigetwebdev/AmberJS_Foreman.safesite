@@ -1,0 +1,29 @@
+<div class="flex items-center">
+  <div class="flex flex-col flex-grow">
+    <div class="text-sm font-medium">
+      {{layer.layerName}}
+    </div>
+  </div>
+  <div class="flex-initial">
+    <button
+      class="border rounded-full p-1 flex disabled:cursor-not-allowed items-center
+        {{if (and layer.visible (not layer.apiError)) 'text-blue' 'text-grey'}}
+
+        {{if layer.apiError 'text-red-light border-red'}}"
+      role="button"
+      disabled={{or toggleTask.isRunning layer.apiError}}
+      {{action (perform toggleTask)}}
+    >
+      {{#if toggleTask.isRunning}}
+        <div class="spinner-inherit border-green h-4 w-4"></div>
+      {{/if}}
+      {{#if layer.apiError}}
+        {{svg-jar 'ui-18' class='h-4 w-4 fill-current' style='position: relative; top: -1px'}}
+      {{else if (not toggleTask.isRunning)}}
+        {{svg-jar 'ui-07' class='h-4 w-4 fill-current'}}
+      {{/if}}
+    </button>
+  </div>
+</div>
+<ArcGisServiceLayersListItemLegend @layer={{layer}} @service={{service}} />
+{{yield}}

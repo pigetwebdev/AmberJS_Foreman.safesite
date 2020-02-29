@@ -1,0 +1,16 @@
+& {
+    button.toggle-panel svg {
+        will-change: transform;
+        transition: transform 150ms linear;
+        //  because the icon doesn't look centered due to visual weight
+        transform: translateX(1px) rotate(0deg);
+    }
+
+    &.expanded button.toggle-panel svg {
+        transform: rotate(90deg) translateX(1px);
+    }
+}
+
+.service-title {
+    max-width: 15rem;
+}

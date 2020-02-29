@@ -1,0 +1,11 @@
+& {
+    grid-area: control;
+    display: flex;
+}
+
+button.play-pause-button {
+    div {
+        @extend .flex;
+        @extend .items-center;
+    }
+}

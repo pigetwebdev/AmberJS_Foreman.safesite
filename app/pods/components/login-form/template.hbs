@@ -1,0 +1,60 @@
+<form novalidate class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" {{action 'submitForm' on='submit'}}>
+  {{#if (eq errorStatusCode 401)}}
+    <div class="px-4 py-4 bg-red text-white rounded-sm border-red-dark border">
+      <h2 class="text-lg font-semi subpixel-antialiased text-shadow-2">
+        Access Denied
+      </h2>
+      <p class="text-sm leading-tight mt-1">
+        Please verify your email and password then try again.
+      </p>
+    </div>
+  {{/if}}
+  <div class="mb-4 mt-4">
+    <label for="email" class="block text-grey-darker text-sm font-semibold mb-2">
+      Email
+    </label>
+    <input
+      id="email"
+      type="email"
+      autofocus
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker text-sm"
+      placeholder="frank@cloudscapelabs.com"
+      name="email"
+      id="email"
+      disabled={{if isLoggingIn 'disabled'}}
+      value={{data.email}}
+      oninput={{action (mut data.email) value='currentTarget.value'}}
+     />
+
+  </div>
+  <div class="mb-4">
+    <label for="email" class="block text-grey-darker text-sm font-semibold mb-2">
+      Password
+    </label>
+    <input
+      id="password"
+      type="password"
+      class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker text-sm"
+      placeholder="********"
+      name="password"
+      id="password"
+      disabled={{if isLoggingIn 'disabled'}}
+      value={{data.password}}
+      oninput={{action (mut data.password) value='currentTarget.value'}}
+     />
+
+  </div>
+  <div class="mt-8">
+    <button
+      class="bg-blue hover:bg-blue-dark text-white text-sm w-full font-semi py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-blue-light disabled:cursor-not-allowed"
+      type="submit"
+      disabled={{or hasClientErrors isLoggingIn}}
+      {{action 'submitForm' on='click'}}
+    >
+      Login
+    </button>
+  </div>
+</form>
+<p class="text-center text-grey text-xs">
+  ©2018 Cloudscape Labs. All rights reserved.
+</p>

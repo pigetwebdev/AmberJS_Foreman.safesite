@@ -1,0 +1,34 @@
+& {
+    cursor: pointer;
+    user-select: none;
+    border-left-color: transparent;
+    transition: border-left-color linear 150ms;
+
+    &.active {
+        border-left-color: rgba(0, 185, 20, 0.8);
+    }
+
+    &.idle {
+        border-left-color: rgba(249, 189, 0, 0.8);
+    }
+
+    &.gone {
+        border-left-color: rgba(226, 0, 3, 0.8);
+    }
+}
+
+&.selected {
+    //@extend .shadow-outline;
+    @extend .border-blue;
+    &.active {
+        border-left-color: rgba(0, 185, 20, 0.8);
+    }
+
+    &.idle {
+        border-left-color: rgba(249, 189, 0, 0.8);
+    }
+
+    &.gone {
+        border-left-color: rgba(226, 0, 3, 0.8);
+    }
+}
